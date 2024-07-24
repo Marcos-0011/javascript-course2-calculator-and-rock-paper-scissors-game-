@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Booleans and If Statements Exercises</title>
+  </head>
+  <body>
+
+    <script>
+      /* 6a-c */
+      const hour = 11;
+
+      const name = 'Marcos';
+
+      if (hour >= 6 && hour <= 12) {
+        console.log(`Good morning ${name}!`);
+      } else if (hour >= 13 && hour <= 17) {
+        console.log(`Good afternoon ${name}!`);
+      } else {
+        console.log(`Good night ${name}!`)
+      }
+
+      /* 6d + e */
+      const age = 5;
+      const isHoliday = false;
+
+      if ((age <= 6 || age >= 65) && !isHoliday) {
+        console.log('Discount');
+      } else {
+        console.log('No discount');
+      }
+
+    </script>
+  </body>
+</html>
