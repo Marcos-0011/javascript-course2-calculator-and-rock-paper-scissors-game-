@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Exercises</title>
+  </head>
+  <body>
+    <!-- 9a+b -->
+    <button>9a</button>
+
+    <button class="js-second-button">9b</button>
+
+    <!-- 9c -->
+    <button onclick="
+      coinFlip('heads');
+    ">heads</button>
+
+    <button onclick="
+      coinFlip('tails');
+    ">tails</button>
+
+    <p class="js-player-move"></p>
+
+    <!-- 9d-f -->
+    <input class="js-name-input" type="text" placeholder="Name" onkeydown="
+      handleNameKeyDown(event);
+    ">
+
+    <button onclick="
+      displayName();
+    ">Submit</button>
+
+    <p class="js-name-display"></p>
+
+    <script>
+      // 9a+b
+      console.log(document.querySelector('button'));
+
+      document.querySelector('.js-second-button').innerHTML = '9b done!';
+
+      // 9c
+      const playerMove = document.querySelector('.js-player-move');
+
+      function coinFlip(choice) {
+        if (choice === 'heads') {
+          playerMove.innerHTML = `You chose: heads`;
+        } else if (choice === 'tails') {
+          playerMove.innerHTML = `You chose: tails`;
+        }
+      }
+
+      // 9d-f
+      function displayName() {
+        const text = document.querySelector('.js-name-input').value;
+        document.querySelector('.js-name-display').innerHTML = `Your name is: ${text}`
+      }
+
+      function handleNameKeyDown(e) {
+        if (e.key === 'Enter') {
+          displayName();
+        }
+      }
+
+    </script>
+  </body>
+</html>

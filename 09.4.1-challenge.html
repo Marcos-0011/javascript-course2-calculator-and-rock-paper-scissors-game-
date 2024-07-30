@@ -4,11 +4,6 @@
     <title>DOM Project</title>
   </head>
   <body>
-    <p>YouTube Subscibe Button</p>
-    <button class="js-subscribe-button" onclick="
-      subscribe();
-    ">Subscribe</button>
-
     <p>Amazon Shipping Calculator</p>
     <p>Orders under $40 = +$10 shipping.</p>
     <p>Orders over $40 = FREE shipping.</p>
@@ -22,30 +17,13 @@
     <p class="js-total-cost"></p>
     
     <script>
-      console.log(typeof String(25));
-      console.log('25' - 5);
-      console.log('25' + '5');
-
-      window.document
-      window.console.log('window');
-      window.alert
-
-      function subscribe() {
-        const buttonElement = document.querySelector('.js-subscribe-button');
-
-        if (buttonElement.innerText === 'Subscribe') {
-          buttonElement.innerText = 'Subscribed';
-        } else {
-          buttonElement.innerText = 'Subscribe';
-        }
-      }
-
+      // the issue is the computer cant handle floats/decimals correctly so we have to first convert to cents then convert back to dollars later
       function calculateTotal() {
         const inputElement = document.querySelector('.js-cost-input');
-        let cost = Number(inputElement.value);
+        let cost = Number(inputElement.value) * 100;
 
-        if (cost < 40) {
-          cost += 10;
+        if (cost < 4000) {
+          cost = (cost + 1000) / 100;
         }
 
         document.querySelector('.js-total-cost')
