@@ -4,6 +4,7 @@
     <title>Lesson 10 Exercises</title>
 
     <style>
+      /* 10a-c */
       body {
         font-family: Arial;
       }
@@ -24,26 +25,38 @@
         padding: 10px 18px;
         border-radius: 5px;
         cursor: pointer;
+        border: none;
       }
 
       .schedule-button {
         background-color: rgb(230, 230, 230);
         padding: 12px 20px;
         font-weight: bold;
+        border-radius: 5px;
         border: none;
         cursor: pointer;
       }
+
     </style>
   </head>
   <body>
+    <!-- 10a-c -->
     <button class="add-cart-button">Add to Cart</button>
 
     <button class="request-button">Request now</button>
 
     <button class="schedule-button">Schedule for later</button>
 
-    <script>
+    <button class="js-button">Test</button>
 
+    <script>
+      const buttonElement = document.querySelector('.js-button');
+
+      if (buttonElement.classList.contains('js-button')) {
+        console.log(true)
+      } else {
+        console.log(false);
+      }
     </script>
   </body>
 </html>
