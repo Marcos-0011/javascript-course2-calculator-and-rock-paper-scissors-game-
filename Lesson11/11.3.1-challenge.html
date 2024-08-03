@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>11 Challenge</title>
+  </head>
+  <body>
+
+    <script>
+      // l-m
+      function minMax(nums) {
+        const minMaxObject = {
+          min: nums[0],
+          max: nums[0]
+        }
+
+        for (i = 0; i < nums.length; i ++) {
+          if (nums[i] < nums[0]) {
+            minMaxObject.min = nums[i];
+          }
+
+          if (nums[i] > nums[0]) {
+            minMaxObject.max = nums[i];
+          }
+        }
+
+        if (minMaxObject.min === undefined && minMaxObject.max === undefined) {
+          minMaxObject.min = null;
+          minMaxObject.max = null;
+        }
+
+        return minMaxObject;
+      }
+
+      console.log(minMax([1, -3, 5]));
+      console.log(minMax([-2, 3, -5, 7, 10]));
+
+      console.log(minMax([]));
+      console.log(minMax([3]));
+
+      // n
+      function countWords(words) {
+        const result = {};
+
+        for (i = 0; i < words.length; i++) {
+          const word = words[i];
+
+          if (!result[word]) {
+            result[word] = 1;
+          } else {
+            result[word]++;
+          }
+        }
+
+        return result;
+      }
+
+      console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+
+      const myObject = {};
+      myObject.apple = 1;
+
+      console.log(myObject);
+    </script>
+  </body>
+</html>
