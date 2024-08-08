@@ -6,8 +6,8 @@
   <body>
 
     <script>
-      /*
-      greeting(); this is called hoisting, where we call a function before creating it. line 16 is a shortcut for the following code:
+      /* part 1 advanced functions
+      greeting(); this is called hoisting, where we call a function before creating it. line 16-18 is a shortcut for the following code:
       var greeting = function() {
         console.log('hello');
       };
@@ -23,7 +23,7 @@
       const function1 = function()  {
         console.log('hello2');
       }
-      // functions are values so they can be saved into variables
+      // functions are values so they can be saved into variables, and a function without a name is called an anonymous function like in line 23
 
       console.log(function1);
       console.log(typeof function1);
@@ -35,7 +35,7 @@
           console.log('hello3');
         }
       };
-      object1.fun();
+      object1.fun(); this is called a method (when we have a function inside an object)
 
       function display(param) {
         console.log(param);
@@ -52,7 +52,7 @@
       // functions are values so they can be stored in objects and be used as a parameter and the param acts like a variable (or passed into another function). the function we pass in is called a call back
       */
 
-      // here, we're creating anyschronous code w the timers: computer wont wait for a line to finish before going to the next line. all our code before has been synchronous code: computer will wait for one line to finish before going to the next line
+      /* here, we're creating anyschronous code w the timers: computer wont wait for a line to finish before going to the next line. all our code before has been synchronous code: computer will wait for one line to finish before going to the next line
       setTimeout(function() {
         console.log('timeout');
         console.log('timeout2');
@@ -65,6 +65,21 @@
       }, 3000);
 
       console.log('next line 2'); 
+      go to 12.1.2 to create autoplay feature */
+
+      // advanced functions part 2: forEach is the preferred way to loop through an array as its easier to read. after console.logging value and index, go to 12.1.3 files to use forEach method instead of for loop
+      [
+        'make dinner',
+        'wash dishes',
+        'watch youtube'
+      ].forEach(function(value, index) {
+        if (value === 'wash dishes') {
+          return; // a return statement in a forEach method acts the same way as continue. if we need to use break (ends a loop early) then its better to use a for loop
+        }
+
+        console.log(value);
+        console.log(index);
+      });
 
     </script>
   </body>

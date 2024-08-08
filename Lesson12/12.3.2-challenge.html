@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>12 challenge2</title>
+  </head>
+  <body>
+    <button onclick="
+        messages++;
+        titleName();
+    ">Add</button>
+
+    <button onclick="
+      if (messages > 0) {
+        messages--;
+      }
+      titleName();
+    ">Remove</button>
+
+    <script>
+      let messages = 2;
+      let intervalId;
+
+      titleName();
+
+      function titleName() {
+        if (messages === 0) {
+          clearInterval(intervalId);
+          document.title = 'App';
+        } else if (messages > 0) {
+          clearInterval(intervalId);
+
+          intervalId = setInterval(function() {
+            if (document.title === 'App') {
+              document.title = `(${messages}) New Messages`;
+            } else {
+              document.title = 'App';
+            }
+          }, 1000);
+        }
+      }
+    </script>
+  </body>
+</html>

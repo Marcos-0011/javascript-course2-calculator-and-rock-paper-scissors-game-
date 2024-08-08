@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>12 challenge</title>
+  </head>
+  <body>
+    <button onclick="
+      displayMessage();
+    ">Add to cart</button>
+
+    <p class="js-message"></p>
+
+    <script>
+      let timeoutID;
+
+      function displayMessage() {
+        const message = document.querySelector('.js-message');
+        message.innerHTML = 'Added';
+
+        clearTimeout(timeoutID);
+
+        timeoutID = setTimeout(function() {
+          message.innerHTML = '';
+          console.log(1);
+        }, 2000);
+      }
+
+    </script>
+  </body>
+</html>
