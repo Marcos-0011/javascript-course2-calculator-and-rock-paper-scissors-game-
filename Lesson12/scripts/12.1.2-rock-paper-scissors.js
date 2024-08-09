@@ -9,9 +9,12 @@ updateScoreElement();
 let isAutoPlaying = false;
 let intervalID;
 
+//const autoPlay = () => {
+
+//};
 function autoPlay () {
   if (!isAutoPlaying) {
-    intervalID = setInterval(function() {
+    intervalID = setInterval(() => {
       const playerMove = pickComputerMove();
       playGame(playerMove);
     }, 1000);

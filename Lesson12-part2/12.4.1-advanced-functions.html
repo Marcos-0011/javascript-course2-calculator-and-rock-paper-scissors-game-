@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>12 Advanced Functions</title>
+  </head>
+  <body>
+
+    <script>
+      /* part 1 advanced functions
+      greeting(); this is called hoisting, where we call a function before creating it. line 16-18 is a shortcut for the following code:
+      var greeting = function() {
+        console.log('hello');
+      };
+      the shortcut has the following advantages: easier to read and allows hoisting
+      
+      function greeting() {
+        console.log('hello');
+      }
+      greeting();
+
+      const num = 2;
+      function greeting()
+      const function1 = function()  {
+        console.log('hello2');
+      }
+      // functions are values so they can be saved into variables, and a function without a name is called an anonymous function like in line 23
+
+      console.log(function1);
+      console.log(typeof function1);
+      function1(); // we can call a function by doing: (variable name)();. as long as you have a way to call the function, the function name is unnecessary, so no need for line 22
+
+      const object1 = {
+        num: 2,
+        fun: function() {
+          console.log('hello3');
+        }
+      };
+      object1.fun(); this is called a method (when we have a function inside an object)
+
+      function display(param) {
+        console.log(param);
+      }
+      display(2);
+
+      function run(param) {
+        param();
+      }
+
+      run(function() {
+        console.log('hello4');
+      })
+      // functions are values so they can be stored in objects and be used as a parameter and the param acts like a variable (or passed into another function). the function we pass in is called a call back
+      */
+
+      /* here, we're creating anyschronous code w the timers: computer wont wait for a line to finish before going to the next line. all our code before has been synchronous code: computer will wait for one line to finish before going to the next line
+      setTimeout(function() {
+        console.log('timeout');
+        console.log('timeout2');
+      }, 3000);
+
+      console.log('next line');
+
+      setInterval(function() {
+        console.log('interval');
+      }, 3000);
+
+      console.log('next line 2'); 
+      go to 12.1.2 to create autoplay feature */
+
+      // advanced functions part 2: forEach is the preferred way to loop through an array as its easier to read. after console.logging value and index, go to 12.1.3 files to use forEach method instead of for loop
+      [
+        'make dinner',
+        'wash dishes',
+        'watch youtube'
+      ].forEach((value, index) => {
+        if (value === 'wash dishes') {
+          return; // a return statement in a forEach method acts the same way as continue. if we need to use break (ends a loop early) then its better to use a for loop
+        }
+
+        console.log(value);
+        console.log(index);
+      });
+
+      const regularFunction = function(param, param2) {
+        console.log('hello2');
+        return 5;
+      }
+
+      const arrowFunction = (param, param2) => {
+        console.log('hello');
+        return 5;
+      };
+
+      arrowFunction();
+
+      const oneParam = param => {
+        console.log(param + 1);
+      };
+      oneParam(2);
+
+      const oneLine = () => 2 + 3;
+      console.log(oneLine());
+    </script>
+  </body>
+</html>
