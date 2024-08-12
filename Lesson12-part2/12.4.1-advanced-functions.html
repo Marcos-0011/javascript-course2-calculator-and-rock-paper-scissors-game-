@@ -4,8 +4,26 @@
     <title>12 Advanced Functions</title>
   </head>
   <body>
+    <button onclick="" class="js-button">Click</button>
 
     <script>
+      /* advanced functions 2 part 2: insted of onclick, we can use the addEventListener method. first value to the method is the event and second is the function we want to run. advantage: add multiple eventlisteners to one event and can also remove it. best practic is to use addEventListener instead of onclick 
+      const buttonElement = document.querySelector('.js-button');
+
+      const eventListener = () => {
+        console.log('click');
+      };  
+
+      buttonElement.addEventListener('click', eventListener);
+
+      buttonElement.removeEventListener('click', eventListener);
+
+      buttonElement.addEventListener('click', () => {
+        console.log('click2');
+      });
+      // go to 12.1.2 to replace onclick and use addEventListener. then go to 12.1.3 to do the same
+      after, go to bottom of this file for advanced functions 2 part 3*/
+
       /* part 1 advanced functions
       greeting(); this is called hoisting, where we call a function before creating it. line 16-18 is a shortcut for the following code:
       var greeting = function() {
@@ -68,6 +86,8 @@
       go to 12.1.2 to create autoplay feature */
 
       // advanced functions part 2: forEach is the preferred way to loop through an array as its easier to read. after console.logging value and index, go to 12.1.3 files to use forEach method instead of for loop
+
+      /* advanced functions 2 part 1:
       [
         'make dinner',
         'wash dishes',
@@ -76,6 +96,7 @@
         if (value === 'wash dishes') {
           return; // a return statement in a forEach method acts the same way as continue. if we need to use break (ends a loop early) then its better to use a for loop
         }
+        // if we're passing a function into another function, then its recommended that we use an arrow function in the inner function. now go to 12.1.2 and use an arrow function
 
         console.log(value);
         console.log(index);
@@ -97,9 +118,44 @@
         console.log(param + 1);
       };
       oneParam(2);
+      // if a function has one param, the parentheses are optional
 
       const oneLine = () => 2 + 3;
       console.log(oneLine());
+      // if a function has one line, the line can be put on the same line as the arrow and curly brackets are optional and the return statement too. the oneline function will automatically return the result on the right
+
+      const object2 = {
+        method: () => {
+
+        },
+        method() {
+
+        }
+      };
+      // when making a function inside of an object: second method is the short hand method which is preferred over the fist method, it is easier to read
+      go to top of file for advanced functions 2 part 2*/
+
+      // advanced functions 2 part 3: filter creates a new array and returns it. it also loops through the array. if it returns true, it will add the value to the new array, if it returns false, it doesnt add the value to the new array
+      console.log([1, -3, 5].filter((value, index) => {
+        /*
+        if (value >= 0) {
+          return true;
+        } else {
+          return false;
+        }
+        */
+        return value >= 0;
+      }));
+
+      // .map() creates a new array, whatever we return is added to new array
+      console.log([1, 1, 3].map((value, index) => {
+        return value * 2;
+      }));
+
+      // the line below does the same as the line above. were not using index so we can take it out. now that we only have one parameter, which is value, we can take out the parantheses. bc we only have one line inside of the function, we can put it on the same line. bc of this, we dont need the return and can take out the curly brackets
+      console.log([1, 1, 3].map(value => value * 2));
+
+      // go over closure in 12.1.3 todolist project. closure: if a function has access to a value, it will always have access to that value. value gets packaged together (enclosed) w the function. to check this, you can console.log(index) inside of addEventListener of querySelectorAll and out of it
     </script>
   </body>
 </html>
