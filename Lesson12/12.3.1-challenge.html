@@ -4,14 +4,18 @@
     <title>12 challenge</title>
   </head>
   <body>
-    <button onclick="
-      displayMessage();
-    ">Add to cart</button>
+    <button class="js-add-button">Add to cart</button>
 
     <p class="js-message"></p>
 
     <script>
       let timeoutID;
+
+      const button = document.querySelector('.js-add-button');
+
+      button.addEventListener('click', () => {
+        displayMessage();
+      })
 
       function displayMessage() {
         const message = document.querySelector('.js-message');
@@ -19,9 +23,8 @@
 
         clearTimeout(timeoutID);
 
-        timeoutID = setTimeout(function() {
+        timeoutID = setTimeout(() => {
           message.innerHTML = '';
-          console.log(1);
         }, 2000);
       }
 

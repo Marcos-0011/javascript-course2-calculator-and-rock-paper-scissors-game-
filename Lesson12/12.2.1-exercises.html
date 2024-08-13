@@ -5,24 +5,10 @@
   </head>
   <body>
     <!-- 12c-d -->
-    <button class="js-start-button" onclick="
-      const button = document.querySelector('.js-start-button');
-      button.innerHTML = 'Loading...'
-      
-      setTimeout(function() {
-        button.innerHTML = 'Finished!';
-      }, 1000);
-    ">Start</button>
+    <button class="js-start-button">Start</button>
 
     <!-- 12e -->
-    <button onclick="
-      const message = document.querySelector('.js-message');
-      message.innerHTML = 'Added';
-
-      setTimeout(function() {
-        message.innerHTML = '';
-      }, 2000);
-    ">Add to cart</button>
+    <button class="js-add-button">Add to cart</button>
 
     <p class="js-message"></p>
 
@@ -46,6 +32,31 @@
       });
 
       runTwice(add);
+
+      // 12c
+      const button = document.querySelector('.js-start-button');
+
+      button.addEventListener('click', () => {
+        button.innerHTML = 'Loading...'
+        
+        setTimeout(() => {
+          button.innerHTML = 'Finished!';
+        }, 1000);  
+      })
+
+      // 12e
+      const button2 = document.querySelector('.js-add-button');
+      
+      button2.addEventListener('click', () => {
+        const message = document.querySelector('.js-message');
+        message.innerHTML = 'Added';
+
+        setTimeout(() => {
+          message.innerHTML = '';
+        }, 2000);
+      })
+
+      
 
       
     </script>
