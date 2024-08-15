@@ -9,17 +9,7 @@ updateScoreElement();
 let isAutoPlaying = false;
 let intervalID;
 
-// challenge
 const autoButton = document.querySelector('.js-auto-play-button');
-autoButton.addEventListener('click', () => {
-  autoPlay();
-})
-
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'a') {
-    autoPlay();
-  }
-})
 
 // 12.4.1
 //const autoPlay = () => {
@@ -59,6 +49,16 @@ document.querySelector('.js-scissors-button').addEventListener('click', () => {
   playGame('scissors');
 });
 
+// 12 challenge
+document.querySelector('.js-auto-play-button').addEventListener('click', () => {
+  autoPlay();
+})
+
+document.querySelector('.js-reset-score-button')
+  .addEventListener('click', () => {
+    showConfirmMessage();
+})
+
 // 12.4.1 advanced functions 2 part 2: when we click a r, p, or s anywhere on the page, it will play the game. have to do body bc it will anywhere on the page. running addEventListener saves the event object and we use it as the parameter function in the second value. the event object has the key property that records what key was pressed. now go to 12.1.3 todolist files to use addEventListener
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'r') {
@@ -67,13 +67,16 @@ document.body.addEventListener('keydown', (event) => {
     playGame('paper');
   } else if (event.key === 's') {
     playGame('scissors');
+// 12 challenge
+  } else if (event.key === 'a') {
+    autoPlay();
+  } else if (event.key === 'Backspace') {
+    showConfirmMessage();
   }
 });
 
 // 12 challenge
-const resetButton = document.querySelector('.js-reset-score-button');
-
-resetButton.addEventListener('click', () => {
+function showConfirmMessage() {
   document.querySelector('.js-reset-message').innerHTML = 'Are you sure you want to reset the score? <button class="yes-button js-yes-button">Yes</button><button class="no-button js-no-button">No</button>';
 
   document.querySelector('.js-yes-button').addEventListener('click', () => {
@@ -82,25 +85,19 @@ resetButton.addEventListener('click', () => {
     score.ties = 0;
     localStorage.removeItem('score');
   
-    document.querySelector('.js-reset-message').innerHTML = '';
+    hideConfirmMessage();
   
     updateScoreElement();
   })
-})
 
-// problem: when computer reads code, the button isnt generated yet, so this comes as an null. have to generate the button first
-console.log(document.querySelector('js-yes-button'));
+  document.querySelector('.js-no-button').addEventListener('click', () => {
+    hideConfirmMessage();
+  })
+}
 
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'Backspace') {
-    score.wins = 0;
-    score.losses = 0;
-    score.ties = 0;
-    localStorage.removeItem('score');
-
-    updateScoreElement();
-  }
-} )
+function hideConfirmMessage() {
+  document.querySelector('.js-reset-message').innerHTML = '';
+}
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
